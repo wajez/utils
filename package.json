@@ -1,0 +1,48 @@
+{
+  "name": "wajez-utils",
+  "version": "0.0.3",
+  "description": "Handy utils for api development.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha --recursive",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "engines": {
+    "node": ">=8.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wajez/utils.git"
+  },
+  "keywords": [
+    "utils",
+    "schema",
+    "mongodb",
+    "mongoose",
+    "seeder",
+    "generate",
+    "random",
+    "data",
+    "convert",
+    "transform"
+  ],
+  "author": "Amine Ben hammou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wajez/utils/issues"
+  },
+  "homepage": "https://github.com/wajez/utils#readme",
+  "dependencies": {
+    "chance": "^1.0.16",
+    "escape-string-regexp": "^1.0.5",
+    "mongoose": "^5.0.17",
+    "randexp": "^0.4.9",
+    "sanctuary": "^0.14.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.1.1"
+  }
+}
