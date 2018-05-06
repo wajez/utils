@@ -1,9 +1,8 @@
 # Wajez Utils
 
-[![Join the chat at https://gitter.im/wajez/utils](https://badges.gitter.im/wajez/utils.svg)](https://gitter.im/wajez/utils?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/wajez/utils.svg?branch=master)](https://travis-ci.org/wajez/utils)
 [![Coverage Status](https://coveralls.io/repos/github/wajez/utils/badge.svg)](https://coveralls.io/github/wajez/utils)
+[![Join the chat at https://gitter.im/wajez/utils](https://badges.gitter.im/wajez/utils.svg)](https://gitter.im/wajez/utils?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/wajez/utils/blob/master/LICENSE)
 
 A bunch of handy functions used to build other Wajez packages.
