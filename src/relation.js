@@ -17,6 +17,7 @@ const relation = def('relation', {}, [T.RelationType, $.String, $.Nullable($.Str
 
 const oneOne = relation('one-one')
 const oneMany = relation('one-many')
+const manyOne = relation('many-one')
 const manyMany = relation('many-many')
 
-module.exports = {relation, oneOne, oneMany, manyMany}
+module.exports = {relation, oneOne, oneMany, manyOne, manyMany}

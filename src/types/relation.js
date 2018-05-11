@@ -1,7 +1,7 @@
 const {$, S} = require('../sanctuary')
 const {_, Enum, Union} = require('./meta')
 
-const RelationType = Enum('RelationType', ['one-one', 'one-many', 'many-many'])
+const RelationType = Enum('RelationType', ['one-one', 'one-many', 'many-one', 'many-many'])
 
 const Relation = _({
   type: RelationType,
