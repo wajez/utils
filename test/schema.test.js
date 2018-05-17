@@ -1,5 +1,6 @@
 const assert = require('chai').assert
 const mongoose = require('mongoose')
+const {Schema} = mongoose
 const {model} = require('../src')
 
 describe('Schema', () => {
@@ -317,5 +318,6 @@ describe('Schema', () => {
         }
       })
     })
+
   })
 })

@@ -559,16 +559,6 @@ applyConverter({ x: triple, y: addOne }, value) // {x: 3, y: 3}
 
 Note that since the key `z` is not mentioned in the converter, it's not included in the result.
 
-If we metion an key which does not exist in the value, the function will be applied to the whole value.
-
-```js
-const sum = ({x, y, z}) => x + y + z
-
-const value = { x: 1, y: 2, z: 3 }
-
-applyConverter({a: sum}, value) // {a: 6}
-```
-
 ## Converter maps over Arrays
 
 When applying a converter to an array, it's applied to each item of the array

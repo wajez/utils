@@ -100,9 +100,7 @@ describe('Lib', () => {
           firstName: _ => _,
           lastName: _ => _.toUpperCase(),
         },
-        {
-          fullName: _ => _.firstName + ' ' + _.lastName
-        },
+        _ => ({fullName: _.firstName + ' ' + _.lastName}),
         _ => _.fullName
       ], {
         firstName: 'Amine',

@@ -39,7 +39,7 @@ const applyConverter = def('applyConverter', {}, [$.Any, $.Any, $.Any],
     converter.constructor === Array ? converter.reduce((v, c) => applyConverter(c, v), value) :
     S.is(Function, converter) ? converter(value) :
     Object.keys(converter).reduce((result, key) => {
-      result[key] = applyConverter(converter[key], value[key] || value)
+      result[key] = applyConverter(converter[key], value[key])
       return result
     }, {})
 )
