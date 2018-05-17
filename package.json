@@ -1,6 +1,6 @@
 {
   "name": "wajez-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Handy utils for api development.",
   "main": "src/index.js",
   "scripts": {
