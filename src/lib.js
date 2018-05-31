@@ -34,7 +34,7 @@ const applySpec = def('applySpec', {}, [$.StrMap($.AnyFunction), $.Any, $.Any],
 
 const applyConverter = def('applyConverter', {}, [$.Any, $.Any, $.Any],
   (converter, value) =>
-    value === undefined ? undefined :
+    (value === undefined || value === null) ? undefined :
     value.constructor === Array ? value.map(_ => applyConverter(converter, _)) :
     converter.constructor === Array ? converter.reduce((v, c) => applyConverter(c, v), value) :
     S.is(Function, converter) ? converter(value) :
