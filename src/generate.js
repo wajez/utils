@@ -8,8 +8,10 @@ const string = def('generateString', {}, [T.StringSchema, $.String],
   ({choices, match, minLength, maxLength}) => {
     if (choices)
       match = choices.map(escapeStringRegexp).join('|')
-    if (match)
+    if (match) {
+      match.max = 5
       return randexp(match)
+    }
     const length = chance.integer({min: minLength, max: maxLength})
     return chance.string({length})
   }
