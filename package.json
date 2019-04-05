@@ -1,6 +1,6 @@
 {
   "name": "wajez-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Handy utils for api development.",
   "main": "src/index.js",
   "scripts": {
@@ -32,10 +32,12 @@
     "url": "https://github.com/wajez/utils/issues"
   },
   "homepage": "https://github.com/wajez/utils#readme",
+  "peerDependencies": {
+    "mongoose": ">=5"
+  },
   "dependencies": {
     "chance": "^1.0.18",
     "escape-string-regexp": "^1.0.5",
-    "mongoose": "^5.4.22",
     "randexp": "^0.5.3",
     "sanctuary": "^0.14.1"
   },
@@ -43,6 +45,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.0.3",
     "istanbul": "^0.4.5",
+    "mongoose": "^5.4.22",
     "jest": "^24.7.1"
   }
 }
