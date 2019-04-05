@@ -4,7 +4,7 @@ const {seed, oneOne, oneMany, manyMany} = require('../src')
 const {connect, disconnect, User, Profile, Category, Post, Comment, Tag} = require('./db')
 
 describe('Seed', () => {
-  before(connect)
+  beforeAll(connect)
   beforeEach(() =>
     User.remove({})
     .then(() => Category.remove({}))
@@ -155,7 +155,7 @@ describe('Seed', () => {
       })
 
     })
-  }).timeout(10000)
+  })
 
-  after(disconnect)
+  afterAll(disconnect)
 })

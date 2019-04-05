@@ -5,4 +5,3 @@ node_js:
   - "10.0.0"
 script: npm test
 services: mongodb
-after_success: npm run coveralls
