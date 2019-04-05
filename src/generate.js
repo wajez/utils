@@ -18,7 +18,7 @@ const string = def('generateString', {}, [T.StringSchema, $.String],
 )
 
 const number = def('generateNumber', {}, [T.NumberSchema, $.Number],
-  ({min, max}) => chance.floating({min, max})
+  ({min, max}) => chance.integer({min, max})
 )
 
 const boolean = def('generateBoolean', {}, [T.BooleanSchema, $.Boolean],
@@ -72,14 +72,35 @@ const array = def('generateArray', {}, [T.ArraySchema, $.Array($.Any)],
   }
 )
 
-const generate = schema => () =>
-  (schema.type === 'date') ? date(schema) :
-  (schema.type === 'array') ? array(schema) :
-  (schema.type === 'string') ? string(schema) :
-  (schema.type === 'number') ? number(schema) :
-  (schema.type === 'buffer') ? buffer(schema) :
-  (schema.type === 'object') ? object(schema) :
-  (schema.type === 'boolean') ? boolean(schema) :
-  null
+const unique = def('generateUnique', {}, [T.UniqueSchema, $.Any],
+  ({schema}) => {
+    const generated = {}
+    const get = generate(schema)
+    return () => {
+      let item = get()
+      let tries = 0
+      while (generated[item] !== undefined && tries < 100) {
+        item = get()
+        tries ++
+      }
+      if (generated[item] !== undefined) return null
+      generated[item] = true
+      return item
+    }
+  }
+)
+
+const generate = schema => {
+  if (schema.type === 'unique') return unique(schema)
+  return () =>
+    (schema.type === 'date') ? date(schema) :
+    (schema.type === 'array') ? array(schema) :
+    (schema.type === 'string') ? string(schema) :
+    (schema.type === 'number') ? number(schema) :
+    (schema.type === 'buffer') ? buffer(schema) :
+    (schema.type === 'object') ? object(schema) :
+    (schema.type === 'boolean') ? boolean(schema) :
+    null
+}
 
 module.exports = {generate}

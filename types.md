@@ -12,7 +12,7 @@ A schema is used to describe the structure of data. It can be one of:
   choices: Array String | Null,
   match: RegExp | Null,
   minLength: Number,
-  maxLength: Number,
+  maxLength: Number
 }
 ```
 
@@ -22,7 +22,7 @@ A schema is used to describe the structure of data. It can be one of:
 {
   type: 'number'
   min: Number,
-  max: Number,
+  max: Number
 }
 ```
 
@@ -69,6 +69,15 @@ A schema is used to describe the structure of data. It can be one of:
 {
   type: 'object',
   fields: StrMap Schema
+}
+```
+
+### UniqueSchema
+
+```js
+{
+  type: 'unique',
+  schema: Schema
 }
 ```
 

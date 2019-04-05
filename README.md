@@ -91,9 +91,9 @@ const anyNumber = U.generate(U.number())
 const rating = U.generate(U.number({min: 1, max: 5}))
 
 console.log(anyNumber())
-// -460.3763
+// -46
 console.log(rating())
-// 4.6537
+// 4
 
 // Generate Booleans
 const anyBoolean = U.generate(U.boolean())
@@ -115,6 +115,12 @@ console.log(inTheFuture())
 const anyBuffer = U.generate(U.buffer())
 console.log(anyBuffer())
 // <Buffer 4d 6f 26 40 69 29 26 4c 77 28 44 58 52 23 74>
+
+// Generate unique values
+const uniqueNumber = U.generate(U.unique(U.number()))
+uniqueNumber() // 15
+uniqueNumber() // -35
+uniqueNumber() // 49
 
 // Generate Objects & Arrays
 const person = U.object({
@@ -138,7 +144,7 @@ const newDeveloper = U.generate(developer)
 console.log(JSON.stringify(newDeveloper()))
 // {
 //   "name":"9dMK&KKg@&mKPHDr6L]Md6HL$jqGAA]Z",
-//   "age":-741.6026,
+//   "age":-741,
 //   "projects": [{
 //     "name":"xZL2YPl9eW]dsKYOQZB",
 //     "language":"python"
@@ -200,7 +206,7 @@ console.log(generateUser())
 //   name: 'gwyvehx raxilunaetkwdzwdwcpwdrpqvp mwpbcxwpku',
 //   picture: <Buffer 2a 42 78 71 55 57 38 31 79 30 34 49 39 4b 36 70>,
 //   since: 2018-02-12T04:31:15.000Z,
-//   rating: 1.9242,
+//   rating: 2,
 //   links: {
 //     facebook: 'VeBL6e-pU',
 //     twitter: 'gKGLqLV',

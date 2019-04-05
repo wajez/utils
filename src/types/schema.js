@@ -48,6 +48,11 @@ const ReferenceSchema = _({
   name: $.String,
 })
 
+const UniqueSchema = _({
+  type: Enum('ReferenceSchemaType', ['unique']),
+  schema: LazySchema,
+})
+
 const UnknownSchema = _({
   type: Enum('UnknownSchemaType', ['unknown'])
 })
@@ -61,6 +66,7 @@ const Schema = Union('Schema', [
   ObjectSchema,
   ArraySchema,
   ReferenceSchema,
+  UniqueSchema,
   UnknownSchema
 ])
 
@@ -74,5 +80,6 @@ module.exports = {
   ArraySchema,
   ReferenceSchema,
   UnknownSchema,
+  UniqueSchema,
   Schema,
 }

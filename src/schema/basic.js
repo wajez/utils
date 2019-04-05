@@ -1,19 +1,27 @@
 const {$, def, S} = require('../sanctuary')
 const T = require('../types')
 
-const string = ({choices, match, minLength, maxLength} = {}) => ({
-  type:      'string',
-  choices:   choices   || null,
-  match:     match   || null,
-  minLength: minLength || 0,
-  maxLength: maxLength || 100
-})
+const string = ({choices, match, minLength, maxLength, unique: uniq} = {}) => {
+  const schema = {
+    type:      'string',
+    choices:   choices   || null,
+    match:     match   || null,
+    minLength: minLength || 0,
+    maxLength: maxLength || 100
+  }
+  if (uniq) return unique(schema)
+  return schema
+}
 
-const number = ({min, max} = {}) => ({
-  type: 'number',
-  min:  (min !== undefined) ? min : -100,
-  max:  (max !== undefined) ? max : 100
-})
+const number = ({min, max, unique: uniq} = {}) => {
+  const schema = {
+    type: 'number',
+    min:  (min !== undefined) ? min : -100,
+    max:  (max !== undefined) ? max : 100
+  }
+  if (uniq) return unique(schema)
+  return schema
+}
 
 const _boolean = {type: 'boolean'}
 const boolean = () => _boolean
@@ -44,6 +52,11 @@ const reference = name => ({
   name
 })
 
+const unique = schema => ({
+  type: 'unique',
+  schema
+})
+
 const _unknown = {type: 'unknown'}
 const unknown = () => _unknown
 
@@ -56,5 +69,6 @@ module.exports = {
   object,
   array,
   reference,
+  unique,
   unknown,
 }
