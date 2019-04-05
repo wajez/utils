@@ -3,7 +3,7 @@ const {Schema} = mongoose
 
 const connect = async () => {
   mongoose.Promise = global.Promise
-  return mongoose.connect(`mongodb://mongo/wajez-utils`)
+  return mongoose.connect(`mongodb://localhost/wajez-utils`)
 }
 
 const disconnect = async () => {
